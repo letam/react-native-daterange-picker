@@ -47,6 +47,7 @@ const DateRangePicker = ({
   buttonTextStyle,
   presetButtons,
   open,
+  markedDates = [],
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [weeks, setWeeks] = useState([]);
@@ -261,6 +262,7 @@ const DateRangePicker = ({
             selected={_selected}
             disabled={_disabled}
             select={select}
+            displayMarker={markedDates.includes(_date.format("YYYY-MM-DD"))}
           />
         );
         if ((i + offset) % 7 === 0 || i === daysInMonth) {
