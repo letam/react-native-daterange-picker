@@ -48,6 +48,8 @@ const DateRangePicker = ({
   presetButtons,
   open,
   markedDates = [],
+  onCancel,
+  tapOutsideToCancel = true,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [weeks, setWeeks] = useState([]);
@@ -90,6 +92,7 @@ const DateRangePicker = ({
   };
 
   const _onClose = () => {
+    if (tapOutsideToCancel && onCancel) onCancel();
     if (typeof open !== "boolean") onClose();
   };
 
