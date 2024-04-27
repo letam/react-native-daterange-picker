@@ -15,6 +15,7 @@ const Day = ({
   disabledTextStyle,
   empty,
   displayMarker,
+  formatForMarkedDates,
 }) => {
   const selectThis = () => {
     if (!disabled) {
@@ -64,17 +65,17 @@ const Day = ({
           >
             {index}
           </Text>
-         {!!index && displayMarker && <Marker />}
+         {!!index && formatForMarkedDates && <Marker display={displayMarker} />}
         </View>
       </View>
     </TouchableOpacity>
   );
 };
 
-const Marker = () => {
+const Marker = ({ display }) => {
   return (
     <View style={{ marginTop: 4, alignItems: "center" }}>
-      <View style={{backgroundColor: "green", width: 4, height: 4 }}></View>
+      <View style={{ ...(display ? { backgroundColor: "green" } : {}), width: 4, height: 4 }}></View>
     </View>
   );
 };

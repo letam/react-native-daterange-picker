@@ -263,6 +263,7 @@ const DateRangePicker = ({
             disabled={_disabled}
             select={select}
             displayMarker={markedDates.includes(_date.format("YYYY-MM-DD"))}
+            formatForMarkedDates={!!markedDates.length}
           />
         );
         if ((i + offset) % 7 === 0 || i === daysInMonth) {
