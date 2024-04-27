@@ -14,6 +14,7 @@ const Day = ({
   dayTextStyle,
   disabledTextStyle,
   empty,
+  displayMarker,
 }) => {
   const selectThis = () => {
     if (!disabled) {
@@ -63,9 +64,18 @@ const Day = ({
           >
             {index}
           </Text>
+         {!!index && displayMarker && <Marker />}
         </View>
       </View>
     </TouchableOpacity>
+  );
+};
+
+const Marker = () => {
+  return (
+    <View style={{ marginTop: 4, alignItems: "center" }}>
+      <View style={{backgroundColor: "green", width: 4, height: 4 }}></View>
+    </View>
   );
 };
 
